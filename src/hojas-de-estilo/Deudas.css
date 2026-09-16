@@ -1,0 +1,597 @@
+.seccion-deudas {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Resumen Cards */
+.deudas-resumen-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.deuda-card-metrica {
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.deuda-card-metrica.pendiente {
+  background: rgba(45, 12, 28, 0.85);
+  border-color: rgba(244, 63, 94, 0.3);
+  color: #fda4af;
+}
+
+.deuda-card-metrica.pendiente .deuda-metrica-valor {
+  color: #fb7185;
+}
+
+.deuda-card-metrica.pagada {
+  background: rgba(6, 38, 26, 0.85);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #6ee7b7;
+}
+
+.deuda-card-metrica.pagada .deuda-metrica-valor {
+  color: #34d399;
+}
+
+.deuda-metrica-label {
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  opacity: 0.9;
+}
+
+.deuda-metrica-valor {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.deuda-metrica-sub {
+  font-size: 0.74rem;
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+/* Formulario Deudas */
+.formulario-deudas {
+  background: rgba(24, 18, 44, 0.85);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 18px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.form-deudas-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.form-deudas-icono {
+  font-size: 1.3rem;
+  color: #f43f5e;
+  background: rgba(244, 63, 94, 0.15);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  padding: 8px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.form-deudas-header h4 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.form-deudas-sub {
+  font-size: 0.78rem;
+  color: #a78bfa;
+  margin-top: 2px;
+}
+
+.deuda-campos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.deuda-campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.deuda-campo-grupo label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #c084fc;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.deuda-campo-grupo input {
+  width: 100%;
+  padding: 11px 13px;
+  font-size: 0.92rem;
+  font-family: inherit;
+  color: #ffffff;
+  background: #0f0a22;
+  border: 1.5px solid rgba(168, 85, 247, 0.3);
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.deuda-campo-grupo input:focus {
+  border-color: #f43f5e;
+  box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.2);
+}
+
+.btn-agregar-deuda {
+  background: linear-gradient(135deg, #be123c 0%, #9f1239 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(190, 18, 60, 0.35);
+}
+
+.btn-agregar-deuda:hover {
+  background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+  transform: translateY(-1px);
+}
+
+/* Lista de Deudas */
+.deudas-lista-seccion {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.deudas-cabecera-lista {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.deudas-cabecera-lista h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.deudas-filtros {
+  display: flex;
+  gap: 6px;
+}
+
+.deuda-filtro-btn {
+  background: rgba(24, 18, 44, 0.8);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  color: #cbd5e1;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: inherit;
+  padding: 5px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.deuda-filtro-btn.activo {
+  background: linear-gradient(135deg, #7e22ce 0%, #9333ea 100%);
+  border-color: #a855f7;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(147, 51, 234, 0.4);
+}
+
+.deudas-vacia {
+  text-align: center;
+  padding: 32px 16px;
+  background: rgba(12, 8, 26, 0.6);
+  border: 1.5px dashed rgba(168, 85, 247, 0.25);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.icono-deuda-vacia {
+  font-size: 2.2rem;
+}
+
+.lista-deudas {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.deuda-item-card {
+  background: rgba(24, 18, 44, 0.85);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 14px;
+  padding: 15px 17px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+}
+
+.deuda-item-card.pendiente {
+  border-left: 5px solid #f43f5e;
+}
+
+.deuda-item-card.pagada {
+  border-left: 5px solid #10b981;
+  background: rgba(15, 25, 28, 0.8);
+  opacity: 0.9;
+}
+
+.deuda-cabecera-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.deuda-titulo-bloque {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.deuda-nombre {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  word-break: break-word;
+}
+
+.deuda-nombre.tachado {
+  text-decoration: line-through;
+  color: #64748b;
+}
+
+.deuda-badges-fila {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.deuda-fecha {
+  font-size: 0.74rem;
+  color: #a78bfa;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.deuda-estado-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 6px;
+  letter-spacing: 0.03em;
+}
+
+.tag-pendiente {
+  background: rgba(244, 63, 94, 0.2);
+  color: #fb7185;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.tag-pagado {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.deuda-montos-bloque {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.deuda-saldo-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.deuda-saldo-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #a78bfa;
+  text-transform: uppercase;
+}
+
+.deuda-monto {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fb7185;
+}
+
+.deuda-monto.monto-pagado {
+  color: #34d399;
+}
+
+.btn-eliminar-deuda {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fb7185;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.8rem;
+}
+
+.btn-eliminar-deuda:hover {
+  background: #f43f5e;
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+/* Barra de progreso de la deuda */
+.deuda-barra-contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.deuda-barra-fondo {
+  width: 100%;
+  height: 6px;
+  background: rgba(10, 6, 20, 0.8);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.deuda-barra-progreso {
+  height: 100%;
+  background: linear-gradient(90deg, #9333ea, #34d399);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.deuda-barra-progreso.completa {
+  background: #10b981;
+}
+
+.deuda-barra-detalle {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #a78bfa;
+}
+
+/* Botón de abonar */
+.deuda-acciones-fila {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2px;
+}
+
+.btn-abonar-deuda {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  padding: 8px 15px;
+  border-radius: 9px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-abonar-deuda:hover {
+  background: #10b981;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+}
+
+/* Modal de Abono */
+.modal-abono-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 3, 12, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal-abono-card {
+  background: #16102d;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 20px;
+  max-width: 420px;
+  width: 100%;
+  padding: 24px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(147, 51, 234, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: scaleUp 0.2s ease;
+}
+
+.modal-abono-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-abono-cabecera h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.btn-cerrar-modal {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #c084fc;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-cerrar-modal:hover {
+  background: rgba(168, 85, 247, 0.3);
+  color: #ffffff;
+}
+
+.modal-abono-desc {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+.modal-abono-info-saldo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(244, 63, 94, 0.15);
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  font-size: 0.88rem;
+  color: #fda4af;
+}
+
+.modal-abono-info-saldo strong {
+  font-size: 1.1rem;
+  color: #fb7185;
+}
+
+.modal-abono-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modal-abono-aviso {
+  font-size: 0.78rem;
+  color: #cbd5e1;
+  background: rgba(12, 8, 26, 0.7);
+  padding: 10px 12px;
+  border-radius: 10px;
+  border-left: 3px solid #c084fc;
+  line-height: 1.4;
+}
+
+.modal-abono-acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.btn-modal-cancelar {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  color: #c084fc;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.btn-modal-cancelar:hover {
+  background: rgba(168, 85, 247, 0.2);
+  color: #ffffff;
+}
+
+.btn-modal-confirmar {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+}
+
+.btn-modal-confirmar:hover {
+  background: #059669;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 480px) {
+  .deudas-resumen-grid {
+    grid-template-columns: 1fr;
+  }
+  .deuda-campos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+

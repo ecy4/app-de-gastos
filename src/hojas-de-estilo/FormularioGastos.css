@@ -1,0 +1,97 @@
+.formulario-gastos {
+  background: rgba(24, 18, 44, 0.85);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #c084fc;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.campo-input,
+.campo-select {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #ffffff;
+  background: #0f0a22;
+  border: 1.5px solid rgba(168, 85, 247, 0.3);
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.campo-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c084fc' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+.campo-select option {
+  background-color: #16102f;
+  color: #ffffff;
+}
+
+.campo-input::placeholder {
+  color: #6b5c90;
+  font-size: 0.9rem;
+}
+
+.campo-input:focus,
+.campo-select:focus {
+  border-color: #c084fc;
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.25);
+  background-color: #140d2e;
+}
+
+.btn-agregar {
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(135deg, #7e22ce 0%, #9333ea 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(147, 51, 234, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.btn-agregar:hover {
+  background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-agregar:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(147, 51, 234, 0.2);
+}
