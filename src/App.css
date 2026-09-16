@@ -102,3 +102,38 @@
   border-radius: 12px;
   box-shadow: 0 0 8px rgba(244, 63, 94, 0.5);
 }
+
+/* Footer de Utilidades y Copia de Seguridad */
+.app-footer {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(168, 85, 247, 0.15);
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.btn-footer-backup {
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  color: #c084fc;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: inherit;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-footer-backup:hover {
+  background: rgba(168, 85, 247, 0.25);
+  color: #ffffff;
+}
+
+.btn-importar {
+  cursor: pointer;
+}

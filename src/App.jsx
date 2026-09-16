@@ -109,6 +109,41 @@ function App() {
 
   const deudasPendientesCount = deudas.filter(d => !(d.pagada || ((d.abonado || 0) >= d.monto))).length
 
+  const exportarDatos = () => {
+    const data = {
+      gastos,
+      presupuesto,
+      deudas,
+      fechaExportacion: new Date().toISOString()
+    }
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `copia-seguridad-gastos-${new Date().toISOString().slice(0, 10)}.json`
+    link.click()
+    URL.revokeObjectURL(url)
+  }
+
+  const importarDatos = (e) => {
+    const file = e.target.files[0]
+    if (!file) return
+    const reader = new FileReader()
+    reader.onload = (event) => {
+      try {
+        const data = JSON.parse(event.target.result)
+        if (data.gastos) setGastos(data.gastos)
+        if (data.presupuesto) setPresupuesto(data.presupuesto)
+        if (data.deudas) setDeudas(data.deudas)
+        alert('¡Copia de seguridad restaurada correctamente!')
+      } catch {
+        alert('El archivo seleccionado no es válido')
+      }
+    }
+    reader.readAsText(file)
+    e.target.value = ''
+  }
+
   return (
     <div className='app-container'>
       <div className='tarjeta-principal'>
@@ -159,6 +194,17 @@ function App() {
             onEliminarDeuda={eliminarDeuda}
           />
         )}
+
+        {/* Barra de utilidades de copia de seguridad */}
+        <footer className='app-footer'>
+          <button onClick={exportarDatos} className='btn-footer-backup' title='Descargar copia de seguridad en JSON'>
+            💾 Descargar Copia
+          </button>
+          <label className='btn-footer-backup btn-importar' title='Restaurar copia de seguridad desde un archivo JSON'>
+            📂 Restaurar Copia
+            <input type='file' accept='.json' onChange={importarDatos} style={{ display: 'none' }} />
+          </label>
+        </footer>
       </div>
     </div>
   )
